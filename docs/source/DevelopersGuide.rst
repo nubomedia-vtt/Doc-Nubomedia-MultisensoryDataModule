@@ -11,15 +11,6 @@ Clone repository:
     sudo apt-get install git
     git clone https://github.com/nubomedia-vtt/msdata.git
 
-Setup the developing environment
-
-.. code:: bash
-
-    cd msdata/misc
-    chmod u+x setup.sh
-    ./setup.sh
-    cd ..
-
 Create a folder to build the MsData
 
 .. code:: bash
@@ -53,6 +44,6 @@ for example:
 .. code:: bash
 
     NAME=$(logname)
-    export KURENTO_MODULES_PATH=$KURENTO_MODULES_PATH:/home/$NAME/nubomedia/msdata/build
-    export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/build
+    export KURENTO_MODULES_PATH=$KURENTO_MODULES_PATH:/home/$NAME/nubomedia/msdata/impl/build
+    export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/impl/build
 
