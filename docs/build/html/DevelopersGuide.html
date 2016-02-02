@@ -138,13 +138,6 @@
 git clone https://github.com/nubomedia-vtt/msdata.git
 </pre></div>
 </div>
-<p>Setup the developing environment</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>cd msdata/misc
-chmod u+x setup.sh
-./setup.sh
-cd ..
-</pre></div>
-</div>
 <p>Create a folder to build the MsData</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>mkdir build
 cd build
@@ -170,6 +163,31 @@ export KURENTO_MODULES_PATH=$KURENTO_MODULES_PATH:/home/$NAME/nubomedia/msdata/b
 export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/build
 </pre></div>
 </div>
+<p>MsData utilizes predefined key with key dependent variable arguments this is implemented with gst_structure_new:</p>
+<p>Both MsData and the filter that utilized MsData through data pads must naturally agree on the data that is delivered  but flexible interface between modules is enabled. As a consequence functionality of the MsData can be increased without affecting the MsData interface.</p>
+<p>As an example, here the utilizer of the MsData tells with the key 123
+that MsData should be able to retrieve data about rectangle, image and value.
+As a result the utilizer should also known what kind of visualization is done with this.
+.. code:: bash</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div>GstStructure <a href="#id1"><span class="problematic" id="id2">*</span></a>result = gst_structure_new (&#8220;msdata&#8221;,</div></blockquote>
+<p>&#8220;key&#8221;, G_TYPE_UINT, (guint) (123),
+&#8220;x&#8221;, G_TYPE_UINT, (guint) (r-&gt;x * resize_factor),
+&#8220;y&#8221;, G_TYPE_UINT, (guint) (r-&gt;y * resize_factor),
+&#8220;width&#8221;, G_TYPE_UINT,
+(guint) (r-&gt;width * resize_factor), &#8220;height&#8221;,
+G_TYPE_UINT, (guint) (r-&gt;height * resize_factor),
+&#8220;b&#8221;, G_TYPE_UINT, (guint) (255),
+&#8220;g&#8221;, G_TYPE_UINT, (guint) (0),
+&#8220;r&#8221;, G_TYPE_UINT, (guint) (255),
+&#8220;d&#8221;, G_TYPE_UINT, (guint) (getMillisecondsTime()),</p>
+</div></blockquote>
+<p>&#8220;overlay&#8221;, G_TYPE_STRING, overlay.c_str(),</p>
+<blockquote>
+<div>NULL);</div></blockquote>
+</div></blockquote>
 </div>
 
 

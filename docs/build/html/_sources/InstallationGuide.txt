@@ -8,16 +8,11 @@ MultisensoryDataModule
 Installation instructions
 -------------------------
 
-*version 2015-09-24*
-
-*Tested on Ubuntu Server 14*
-
-*Tested on Ubuntu Desktop 14*
 
 Recommend easy installation
 ===========================
 
-These are the instructions to utilize the ar-markerdetector filter.
+These are the instructions to utilize the multisensorydata filter.
 
 If you wish to have the most convenient installation, you should install
 the following in this order:
@@ -65,7 +60,7 @@ Choose this if you wish to install with dpkg the latest release version
 (not necessarily contains the latest features).
 
 Fetch and install the debian package:
-`ar-markerdetector\_0.0.6~rc1\_amd64.deb <http://ssi.vtt.fi/ubuntu/dists/trusty/main/binary-amd64/amd64/msdata_0.0.1~rc1_amd64.deb>`__
+`msdata\_0.0.1~rc1\_amd64.deb <http://ssi.vtt.fi/ubuntu/dists/trusty/main/binary-amd64/amd64/msdata_0.0.1~rc1_amd64.deb>`__
 
 .. code:: bash
 
