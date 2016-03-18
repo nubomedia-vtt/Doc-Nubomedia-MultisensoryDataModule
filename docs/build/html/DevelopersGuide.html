@@ -164,10 +164,11 @@ export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/build
 </pre></div>
 </div>
 <p>MsData utilizes predefined key with key dependent variable arguments this is implemented with gst_structure_new:</p>
+<p>Creates a new GstStructure with the given name. Parses the list of variable arguments and sets fields to the values listed. Variable arguments should be passed as field name, field type, and value. Last variable argument should be NULL.</p>
 <p>Both MsData and the filter that utilized MsData through data pads must naturally agree on the data that is delivered  but flexible interface between modules is enabled. As a consequence functionality of the MsData can be increased without affecting the MsData interface.</p>
 <p>As an example, here the utilizer of the MsData tells with the key 123
 that MsData should be able to retrieve data about rectangle, image and value.
-As a result the utilizer should also known what kind of visualization is done with this.</p>
+As a result the utilizer should also known what kind of visualization is done with this:</p>
 </div>
 
 
