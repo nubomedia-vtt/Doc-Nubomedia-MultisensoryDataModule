@@ -66,9 +66,7 @@ As an example, here the utilizer of the MsData tells with the key 123
 that MsData should be able to retrieve data about rectangle, image and value.
 As a result the utilizer should also known what kind of visualization is done with this. 
 .. code:: bash
-	  GstStructure *result = gst_structure_new ("msdata",
-        "key", G_TYPE_UINT, (guint) (123),
-        "x", G_TYPE_UINT, (guint) (r->x * resize_factor),
+	  GstStructure *result = gst_structure_new ("msdata", "key", G_TYPE_UINT, (guint) (123), "x", G_TYPE_UINT, (guint) (r->x * resize_factor),
         "y", G_TYPE_UINT, (guint) (r->y * resize_factor),
         "width", G_TYPE_UINT,
         (guint) (r->width * resize_factor), "height",
@@ -77,6 +75,4 @@ As a result the utilizer should also known what kind of visualization is done wi
         "g", G_TYPE_UINT, (guint) (0),
         "r", G_TYPE_UINT, (guint) (255),
         "d", G_TYPE_UINT, (guint) (getMillisecondsTime()),
-      "overlay", G_TYPE_STRING, overlay.c_str(),
-
-        NULL);
+      "overlay", G_TYPE_STRING, overlay.c_str(), NULL);
