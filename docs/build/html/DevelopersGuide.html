@@ -169,6 +169,9 @@ export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/build
 <p>As an example, here the utilizer of the MsData tells with the key 123
 that MsData should be able to retrieve data about rectangle, image and value.
 As a result the utilizer should also known what kind of visualization is done with this:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>GstStructure *result = gst_structure_new (&quot;msdata&quot;, &quot;key&quot;, G_TYPE_UINT, (guint) (123), &quot;x&quot;, G_TYPE_UINT, (guint) (r-&gt;x * resize_factor), &quot;y&quot;, G_TYPE_UINT, (guint) (r-&gt;y * resize_factor), &quot;width&quot;, G_TYPE_UINT, (guint) (r-&gt;width * resize_factor), &quot;height&quot;, G_TYPE_UINT, (guint) (r-&gt;height * resize_factor), &quot;b&quot;, G_TYPE_UINT, (guint) (255), &quot;g&quot;, G_TYPE_UINT, (guint) (0), &quot;r&quot;, G_TYPE_UINT, (guint) (255), &quot;d&quot;, G_TYPE_UINT, (guint) (getMillisecondsTime()), &quot;overlay&quot;, G_TYPE_STRING, overlay.c_str(), NULL);
+</pre></div>
+</div>
 </div>
 
 
