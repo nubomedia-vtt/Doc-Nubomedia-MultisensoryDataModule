@@ -51,11 +51,11 @@ for example:
 MsData utilizes predefined key with key dependent variable arguments this is implemented with gst_structure_new:
 
 .. code:: bash
+
 	  gst_structure_new ()
 	  GstStructure *
 	  gst_structure_new (const gchar *name,
                    const gchar *firstfield,
-                   ...);
 	  
 Creates a new GstStructure with the given name. Parses the list of variable arguments and sets fields to the values listed. Variable arguments should be passed as field name, field type, and value. Last variable argument should be NULL.
 
@@ -68,4 +68,12 @@ As a result the utilizer should also known what kind of visualization is done wi
 
 .. code:: bash
 
-	  GstStructure *result = gst_structure_new ("msdata", "key", G_TYPE_UINT, (guint) (123), "x", G_TYPE_UINT, (guint) (r->x * resize_factor), "y", G_TYPE_UINT, (guint) (r->y * resize_factor), "width", G_TYPE_UINT, (guint) (r->width * resize_factor), "height", G_TYPE_UINT, (guint) (r->height * resize_factor), "b", G_TYPE_UINT, (guint) (255), "g", G_TYPE_UINT, (guint) (0), "r", G_TYPE_UINT, (guint) (255), "d", G_TYPE_UINT, (guint) (getMillisecondsTime()), "overlay", G_TYPE_STRING, overlay.c_str(), NULL);
+	  GstStructure *result = gst_structure_new ("msdata", "key", 
+	  G_TYPE_UINT, (guint) (123), "x", G_TYPE_UINT, 
+	  (guint) (r->x * resize_factor), "y", G_TYPE_UINT, 
+	  (guint) (r->y * resize_factor), "width", G_TYPE_UINT, 
+	  (guint) (r->width * resize_factor), "height", G_TYPE_UINT, 
+	  (guint) (r->height * resize_factor), "b", G_TYPE_UINT, 
+	  (guint) (255), "g", G_TYPE_UINT, (guint) (0), "r", G_TYPE_UINT, 
+	  (guint) (255), "d", G_TYPE_UINT, (guint) (getMillisecondsTime()), 
+	  "overlay", G_TYPE_STRING, overlay.c_str(), NULL);
