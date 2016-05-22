@@ -83,7 +83,14 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">Readme</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Developers Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Developers Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kurento-client-interface">Kurento Client Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developing-source-code">Developing Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-pad-interface">Data Pad Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-pad-interface-demos">Data Pad Interface Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-channel-demo">Data Channel Demo</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="InstallationGuide.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="License.html">License</a></li>
 </ul>
@@ -143,6 +150,8 @@ git clone https://github.com/nubomedia-vtt/msdata.git
 cd build
 </pre></div>
 </div>
+<div class="section" id="kurento-client-interface">
+<h2>Kurento Client Interface<a class="headerlink" href="#kurento-client-interface" title="Permalink to this headline">¶</a></h2>
 <p>Now you have an option to generate either Java or JavaScript interface
 for the Kurento Client (or naturally both if you need)</p>
 <p>Java version</p>
@@ -153,6 +162,9 @@ for the Kurento Client (or naturally both if you need)</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>cmake .. -DGENERATE_JS_CLIENT_PROJECT=TRUE
 </pre></div>
 </div>
+</div>
+<div class="section" id="developing-source-code">
+<h2>Developing Source Code<a class="headerlink" href="#developing-source-code" title="Permalink to this headline">¶</a></h2>
 <p>To use the compiled results in Kurento just set into:</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>/etc/default/kurento-media-server-6.0
 </pre></div>
@@ -160,9 +172,12 @@ for the Kurento Client (or naturally both if you need)</p>
 <p>for example:</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>NAME=$(logname)
 export KURENTO_MODULES_PATH=$KURENTO_MODULES_PATH:/home/$NAME/nubomedia/msdata/build
-export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/build
+export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/builds
 </pre></div>
 </div>
+</div>
+<div class="section" id="data-pad-interface">
+<h2>Data Pad Interface<a class="headerlink" href="#data-pad-interface" title="Permalink to this headline">¶</a></h2>
 <p>MsData utilizes predefined key with key dependent variable arguments this is implemented with gst_structure_new:</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>gst_structure_new ()
 GstStructure *
@@ -170,21 +185,34 @@ gst_structure_new (const gchar *name,
          const gchar *firstfield,
 </pre></div>
 </div>
-<p>Creates a new GstStructure with the given name. Parses the list of variable arguments and sets fields to the values listed. Variable arguments should be passed as field name, field type, and value. Last variable argument should be NULL.</p>
+<p>This creates a new GstStructure with the given name. Parses the list of variable arguments and sets fields to the values listed. Variable arguments should be passed as field name, field type, and value. Last variable argument should be NULL.</p>
 <p>Both MsData and the filter that utilized MsData through data pads must naturally agree on the data that is delivered  but flexible interface between modules is enabled. As a consequence functionality of the MsData can be increased without affecting the MsData interface.</p>
-<p>As an example, here the utilizer of the MsData tells with the key 123
-that MsData should be able to retrieve data about rectangle, image and value.
-As a result the utilizer should also known what kind of visualization is done with this:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>GstStructure *result = gst_structure_new (&quot;msdata&quot;, &quot;key&quot;,
-G_TYPE_UINT, (guint) (123), &quot;x&quot;, G_TYPE_UINT,
-(guint) (r-&gt;x * resize_factor), &quot;y&quot;, G_TYPE_UINT,
-(guint) (r-&gt;y * resize_factor), &quot;width&quot;, G_TYPE_UINT,
-(guint) (r-&gt;width * resize_factor), &quot;height&quot;, G_TYPE_UINT,
-(guint) (r-&gt;height * resize_factor), &quot;b&quot;, G_TYPE_UINT,
-(guint) (255), &quot;g&quot;, G_TYPE_UINT, (guint) (0), &quot;r&quot;, G_TYPE_UINT,
-(guint) (255), &quot;d&quot;, G_TYPE_UINT, (guint) (getMillisecondsTime()),
+</div>
+<div class="section" id="data-pad-interface-demos">
+<h2>Data Pad Interface Demos<a class="headerlink" href="#data-pad-interface-demos" title="Permalink to this headline">¶</a></h2>
+<p>As an example about utilization of MsData interface
+<a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaasheartrate.git">a heart rate demo</a> and
+<a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaasgraph.git">a graph demo</a>
+are provided.</p>
+<p>The heart rate demo tells with the
+key 123 that MsData should visualize overlay image with data into window of width and height size so that the window is located into x and y coordinate:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>GstStructure *result = gst_structure_new (&quot;msdata&quot;,
+&quot;key&quot;, G_TYPE_UINT, (guint) (123),
+&quot;x&quot;, G_TYPE_UINT, (guint) (r-&gt;x * resize_factor),
+&quot;y&quot;, G_TYPE_UINT, (guint) (r-&gt;y * resize_factor),
+&quot;width&quot;, G_TYPE_UINT, (guint) (r-&gt;width * resize_factor),
+&quot;height&quot;, G_TYPE_UINT, (guint) (r-&gt;height * resize_factor),
+&quot;data&quot;, G_TYPE_UINT, (guint) (getMillisecondsTime()),
 &quot;overlay&quot;, G_TYPE_STRING, overlay.c_str(), NULL);
 </pre></div>
+</div>
+<p>The graph demo utilizes similar data structure but tells with the key 456 instead that graph should be drawn.</p>
+<p><a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaastemperature.git">a temperature demo</a> and</p>
+</div>
+<div class="section" id="data-channel-demo">
+<h2>Data Channel Demo<a class="headerlink" href="#data-channel-demo" title="Permalink to this headline">¶</a></h2>
+<p>As an example about utilization of MsData with data channel
+<a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaastemperature.git">a temperature demo</a> which sends random temperature is provided.</p>
 </div>
 </div>
 
