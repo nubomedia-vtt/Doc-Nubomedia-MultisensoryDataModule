@@ -95,8 +95,6 @@ key 123 that MsData should visualize overlay image with data into window of widt
 
 The graph demo utilizes similar data structure but tells with the key 456 instead that graph should be drawn.
 
-`a temperature demo <https://github.com/nubomedia-vtt/msdatademopaastemperature.git>`__ and 
-
 
 Data Channel Demo
 ===========================
