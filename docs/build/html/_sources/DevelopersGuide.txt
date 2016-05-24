@@ -95,6 +95,7 @@ key 123 that MsData should visualize overlay image with data into window of widt
 
 The graph demo utilizes similar data structure but tells with the key 456 instead that graph should be drawn.
 The flexible MsData interface enables also several other paramaters to be sent although they are yet unknown.
+
 .. code:: bash
 
           GstStructure *result = gst_structure_new ("msdata",

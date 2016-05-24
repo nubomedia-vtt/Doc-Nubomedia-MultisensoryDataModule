@@ -207,17 +207,17 @@ key 123 that MsData should visualize overlay image with data into window of widt
 </pre></div>
 </div>
 <p>The graph demo utilizes similar data structure but tells with the key 456 instead that graph should be drawn.
-The flexible MsData interface enables also several other paramaters to be sent although they are yet unknown.
-.. code:: bash</p>
-<blockquote>
-<div>GstStructure <a href="#id1"><span class="problematic" id="id2">*</span></a>result = gst_structure_new (&#8220;msdata&#8221;,
-&#8220;key&#8221;, G_TYPE_UINT, (guint) (456),
-&#8220;x&#8221;, G_TYPE_UINT, (guint) (r-&gt;x * resize_factor),
-&#8220;y&#8221;, G_TYPE_UINT, (guint) (r-&gt;y * resize_factor),
-&#8220;width&#8221;, G_TYPE_UINT, (guint) (r-&gt;width * resize_factor),
-&#8220;height&#8221;, G_TYPE_UINT, (guint) (r-&gt;height * resize_factor),
-&#8220;data&#8221;, G_TYPE_UINT, (guint) (value),
-&#8220;overlay&#8221;, G_TYPE_STRING, overlay.c_str(), NULL);</div></blockquote>
+The flexible MsData interface enables also several other paramaters to be sent although they are yet unknown.</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>GstStructure *result = gst_structure_new (&quot;msdata&quot;,
+&quot;key&quot;, G_TYPE_UINT, (guint) (456),
+&quot;x&quot;, G_TYPE_UINT, (guint) (r-&gt;x * resize_factor),
+&quot;y&quot;, G_TYPE_UINT, (guint) (r-&gt;y * resize_factor),
+&quot;width&quot;, G_TYPE_UINT, (guint) (r-&gt;width * resize_factor),
+&quot;height&quot;, G_TYPE_UINT, (guint) (r-&gt;height * resize_factor),
+&quot;data&quot;, G_TYPE_UINT, (guint) (value),
+&quot;overlay&quot;, G_TYPE_STRING, overlay.c_str(), NULL);
+</pre></div>
+</div>
 </div>
 <div class="section" id="data-channel-demo">
 <h2>Data Channel Demo<a class="headerlink" href="#data-channel-demo" title="Permalink to this headline">¶</a></h2>
