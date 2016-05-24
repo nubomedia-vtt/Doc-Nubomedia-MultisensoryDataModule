@@ -71,7 +71,7 @@ This creates a new GstStructure with the given name. Parses the list of variable
 Both MsData and the filter that utilized MsData through data pads must naturally agree on the data that is delivered  but flexible interface between modules is enabled. As a consequence functionality of the MsData can be increased without affecting the MsData interface.
 
 
-Data Pad Interface Demos
+MsData Interface Demos
 ===========================
 
 As an example about utilization of MsData interface

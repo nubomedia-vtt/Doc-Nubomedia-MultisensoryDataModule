@@ -87,7 +87,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#kurento-client-interface">Kurento Client Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#developing-source-code">Developing Source Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#msdata-interface-ie-data-pads">MsData Interface ie Data Pads</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-pad-interface-demos">Data Pad Interface Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#msdata-interface-demos">MsData Interface Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-channel-demo">Data Channel Demo</a></li>
 </ul>
 </li>
@@ -188,8 +188,8 @@ gst_structure_new (const gchar *name,
 <p>This creates a new GstStructure with the given name. Parses the list of variable arguments and sets fields to the values listed. Variable arguments should be passed as field name, field type, and value. Last variable argument should be NULL.</p>
 <p>Both MsData and the filter that utilized MsData through data pads must naturally agree on the data that is delivered  but flexible interface between modules is enabled. As a consequence functionality of the MsData can be increased without affecting the MsData interface.</p>
 </div>
-<div class="section" id="data-pad-interface-demos">
-<h2>Data Pad Interface Demos<a class="headerlink" href="#data-pad-interface-demos" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="msdata-interface-demos">
+<h2>MsData Interface Demos<a class="headerlink" href="#msdata-interface-demos" title="Permalink to this headline">¶</a></h2>
 <p>As an example about utilization of MsData interface
 <a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaasheartrate.git">a heart rate demo</a> and
 <a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaasgraph.git">a graph demo</a>
