@@ -54,7 +54,7 @@ for example:
     export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/builds
 
 
-Data Pad Interface
+MsData Interface ie Data Pads
 ===========================
 
 MsData utilizes predefined key with key dependent variable arguments this is implemented with gst_structure_new:
@@ -90,10 +90,21 @@ key 123 that MsData should visualize overlay image with data into window of widt
 	  "y", G_TYPE_UINT, (guint) (r->y * resize_factor), 
 	  "width", G_TYPE_UINT, (guint) (r->width * resize_factor), 
 	  "height", G_TYPE_UINT, (guint) (r->height * resize_factor), 
-	  "data", G_TYPE_UINT, (guint) (getMillisecondsTime()), 
+	  "data", G_TYPE_UINT, (guint) (value), 
 	  "overlay", G_TYPE_STRING, overlay.c_str(), NULL);
 
 The graph demo utilizes similar data structure but tells with the key 456 instead that graph should be drawn.
+The flexible MsData interface enables also several other paramaters to be sent although they are yet unknown.
+.. code:: bash
+
+          GstStructure *result = gst_structure_new ("msdata",
+          "key", G_TYPE_UINT, (guint) (456),
+          "x", G_TYPE_UINT, (guint) (r->x * resize_factor),
+          "y", G_TYPE_UINT, (guint) (r->y * resize_factor),
+          "width", G_TYPE_UINT, (guint) (r->width * resize_factor),
+          "height", G_TYPE_UINT, (guint) (r->height * resize_factor),
+          "data", G_TYPE_UINT, (guint) (value),
+          "overlay", G_TYPE_STRING, overlay.c_str(), NULL);
 
 
 Data Channel Demo

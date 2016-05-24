@@ -15,9 +15,11 @@ MsData implements multi-domain AR filter providing 2D graphics visualisation ser
 `Kurento documentation <http://www.kurento.org/>`__ 
 for a more complete view of the Kurento architecture.
 
-The following image show the current visualisations provided ie heart rate and temperature. In addition, speed meter visualisation is considered.
+The following image show the current visualisations provided ie heart rate, temperature and graph. In addition, speed meter visualisation is considered.
 
 .. image:: sleeps.jpg
 
 .. image:: temperature.jpg
+
+.. image:: graph.jpg
 
