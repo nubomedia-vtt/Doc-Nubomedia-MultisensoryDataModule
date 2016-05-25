@@ -59,12 +59,12 @@ Note that this is alternative to the Option apt-get.
 Choose this if you wish to install with dpkg the latest release version
 (not necessarily contains the latest features).
 
-Fetch and install the latest debian package (eg at the moment 1.0.0 or newer):
-`msdata_1.0.0_amd64.deb <http://ssi.vtt.fi/ubuntu/dists/trusty/main/binary-amd64/amd64/msdata_1.0.0_amd64.deb>`__
+Fetch and install the latest debian package (eg at the moment 6.4.0 or newer):
+`msdata_6.4.0_amd64.deb <http://ssi.vtt.fi/ubuntu/dists/trusty/main/binary-amd64/amd64/msdata_6.4.0_amd64.deb>`__
 
 .. code:: bash
 
-    sudo dpkg -i msdata_1.0.0_amd64.deb
+    sudo dpkg -i msdata_6.4.0_amd64.deb
     sudo apt-get -f install
     sudo ldconfig
     sudo /etc/init.d/kurento-media-server-6.0 restart

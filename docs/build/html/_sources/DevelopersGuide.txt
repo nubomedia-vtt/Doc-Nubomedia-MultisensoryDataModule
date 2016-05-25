@@ -79,13 +79,11 @@ As an example about utilization of MsData interface
 `a graph demo <https://github.com/nubomedia-vtt/msdatademopaasgraph.git>`__
 are provided. 
 
-The heart rate demo tells with the 
-key 123 that MsData should visualize overlay image with data into window of width and height size so that the window is located into x and y coordinate:
+The heart rate demo tells that MsData should visualize overlay image with data into window of width and height size so that the window is located into x and y coordinate:
 
 .. code:: bash
 
 	  GstStructure *result = gst_structure_new ("msdata", 
-	  "key", G_TYPE_UINT, (guint) (123), 
 	  "x", G_TYPE_UINT, (guint) (r->x * resize_factor), 
 	  "y", G_TYPE_UINT, (guint) (r->y * resize_factor), 
 	  "width", G_TYPE_UINT, (guint) (r->width * resize_factor), 
@@ -93,7 +91,17 @@ key 123 that MsData should visualize overlay image with data into window of widt
 	  "data", G_TYPE_UINT, (guint) (value), 
 	  "overlay", G_TYPE_STRING, overlay.c_str(), NULL);
 
-The graph demo utilizes similar data structure but tells with the key 456 instead that graph should be drawn.
+The media pipeline is done with the following structure:
+
+.. code:: bash
+
+	  KmsSHD kmsSHD = new KmsSHD.Builder(pipeline).build();
+	  KmsGHD kmsGHD = new KmsGHD.Builder(pipeline).build();
+	  webRtcEndpoint.connect(kmsGHD);
+	  kmsGHD.connect(kmsSHD);
+	  kmsSHD.connect(webRtcEndpoint);
+
+The graph demo utilizes similar data structure but this time tells that graph should be drawn.
 The flexible MsData interface enables also several other paramaters to be sent although they are yet unknown.
 
 .. code:: bash
@@ -105,11 +113,26 @@ The flexible MsData interface enables also several other paramaters to be sent a
           "width", G_TYPE_UINT, (guint) (r->width * resize_factor),
           "height", G_TYPE_UINT, (guint) (r->height * resize_factor),
           "data", G_TYPE_UINT, (guint) (value),
-          "overlay", G_TYPE_STRING, overlay.c_str(), NULL);
+	  NULL);
 
+The media pipeline is done with the following structure:
+
+.. code:: bash
+
+	  KmsSGD kmsSGD = new KmsSGD.Builder(pipeline).build();
+	  KmsGGD kmsGGD = new KmsGGD.Builder(pipeline).build();
+	  webRtcEndpoint.connect(kmsGGD);
+	  kmsGGD.connect(kmsSGD);
+	  kmsSGD.connect(webRtcEndpoint);
 
 Data Channel Demo
 ===========================
 As an example about utilization of MsData with data channel
 `a temperature demo <https://github.com/nubomedia-vtt/msdatademopaastemperature.git>`__ which sends random temperature is provided. 
 
+The media pipeline is done with the following structure:
+
+.. code:: bash
+	  KmsTD kmsTD = new KmsTD.Builder(pipeline).build();
+	  webRtcEndpoint.connect(kmsTD);
+	  kmsTD.connect(webRtcEndpoint);

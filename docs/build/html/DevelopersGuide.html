@@ -194,10 +194,8 @@ gst_structure_new (const gchar *name,
 <a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaasheartrate.git">a heart rate demo</a> and
 <a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaasgraph.git">a graph demo</a>
 are provided.</p>
-<p>The heart rate demo tells with the
-key 123 that MsData should visualize overlay image with data into window of width and height size so that the window is located into x and y coordinate:</p>
+<p>The heart rate demo tells that MsData should visualize overlay image with data into window of width and height size so that the window is located into x and y coordinate:</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>GstStructure *result = gst_structure_new (&quot;msdata&quot;,
-&quot;key&quot;, G_TYPE_UINT, (guint) (123),
 &quot;x&quot;, G_TYPE_UINT, (guint) (r-&gt;x * resize_factor),
 &quot;y&quot;, G_TYPE_UINT, (guint) (r-&gt;y * resize_factor),
 &quot;width&quot;, G_TYPE_UINT, (guint) (r-&gt;width * resize_factor),
@@ -206,7 +204,15 @@ key 123 that MsData should visualize overlay image with data into window of widt
 &quot;overlay&quot;, G_TYPE_STRING, overlay.c_str(), NULL);
 </pre></div>
 </div>
-<p>The graph demo utilizes similar data structure but tells with the key 456 instead that graph should be drawn.
+<p>The media pipeline is done with the following structure:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>KmsSHD kmsSHD = new KmsSHD.Builder(pipeline).build();
+KmsGHD kmsGHD = new KmsGHD.Builder(pipeline).build();
+webRtcEndpoint.connect(kmsGHD);
+kmsGHD.connect(kmsSHD);
+kmsSHD.connect(webRtcEndpoint);
+</pre></div>
+</div>
+<p>The graph demo utilizes similar data structure but this time tells that graph should be drawn.
 The flexible MsData interface enables also several other paramaters to be sent although they are yet unknown.</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>GstStructure *result = gst_structure_new (&quot;msdata&quot;,
 &quot;key&quot;, G_TYPE_UINT, (guint) (456),
@@ -215,7 +221,15 @@ The flexible MsData interface enables also several other paramaters to be sent a
 &quot;width&quot;, G_TYPE_UINT, (guint) (r-&gt;width * resize_factor),
 &quot;height&quot;, G_TYPE_UINT, (guint) (r-&gt;height * resize_factor),
 &quot;data&quot;, G_TYPE_UINT, (guint) (value),
-&quot;overlay&quot;, G_TYPE_STRING, overlay.c_str(), NULL);
+NULL);
+</pre></div>
+</div>
+<p>The media pipeline is done with the following structure:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>KmsSGD kmsSGD = new KmsSGD.Builder(pipeline).build();
+KmsGGD kmsGGD = new KmsGGD.Builder(pipeline).build();
+webRtcEndpoint.connect(kmsGGD);
+kmsGGD.connect(kmsSGD);
+kmsSGD.connect(webRtcEndpoint);
 </pre></div>
 </div>
 </div>
@@ -223,6 +237,7 @@ The flexible MsData interface enables also several other paramaters to be sent a
 <h2>Data Channel Demo<a class="headerlink" href="#data-channel-demo" title="Permalink to this headline">¶</a></h2>
 <p>As an example about utilization of MsData with data channel
 <a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaastemperature.git">a temperature demo</a> which sends random temperature is provided.</p>
+<p>The media pipeline is done with the following structure:</p>
 </div>
 </div>
 
