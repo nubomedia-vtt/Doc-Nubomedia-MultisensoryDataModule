@@ -133,6 +133,7 @@ As an example about utilization of MsData with data channel
 The media pipeline is done with the following structure:
 
 .. code:: bash
+
 	  KmsTD kmsTD = new KmsTD.Builder(pipeline).build();
 	  webRtcEndpoint.connect(kmsTD);
 	  kmsTD.connect(webRtcEndpoint);

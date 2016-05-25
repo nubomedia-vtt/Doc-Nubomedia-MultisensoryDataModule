@@ -238,6 +238,11 @@ kmsSGD.connect(webRtcEndpoint);
 <p>As an example about utilization of MsData with data channel
 <a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaastemperature.git">a temperature demo</a> which sends random temperature is provided.</p>
 <p>The media pipeline is done with the following structure:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>KmsTD kmsTD = new KmsTD.Builder(pipeline).build();
+webRtcEndpoint.connect(kmsTD);
+kmsTD.connect(webRtcEndpoint);
+</pre></div>
+</div>
 </div>
 </div>
 
