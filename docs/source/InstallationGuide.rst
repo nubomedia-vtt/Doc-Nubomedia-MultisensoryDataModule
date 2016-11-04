@@ -59,8 +59,11 @@ Note that this is alternative to the Option apt-get.
 Choose this if you wish to install with dpkg the latest release version
 (not necessarily contains the latest features).
 
-Fetch and install the latest debian package (eg at the moment 6.5.0 or newer):
-`msdata_6.5.0_amd64.deb <http://ssi.vtt.fi/ubuntu/dists/trusty/main/binary-amd64/amd64/msdata_6.5.0_amd64.deb>`__
+Fetch and install the latest debian package (eg at the moment 6.6.1 or newer):
+
+`msdata_6.6.1_amd64.deb <http://ssi.vtt.fi/ubuntu/dists/trusty/main/binary-amd64/amd64/msdata_6.6.1_amd64.deb>`__
+
+`Check the folder for the latest one if needed <http://ssi.vtt.fi/ubuntu/dists/trusty/main/binary-amd64/amd64/>`__
 
 .. code:: bash
 
