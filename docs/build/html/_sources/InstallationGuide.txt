@@ -67,7 +67,7 @@ Fetch and install the latest debian package (eg at the moment 6.6.1 or newer):
 
 .. code:: bash
 
-    sudo dpkg -i msdata_6.5.0_amd64.deb
+    sudo dpkg -i msdata_6.6.1_amd64.deb
     sudo apt-get -f install
     sudo ldconfig
     sudo /etc/init.d/kurento-media-server-6.0 restart
