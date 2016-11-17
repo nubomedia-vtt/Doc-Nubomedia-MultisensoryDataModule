@@ -91,7 +91,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="InstallationGuide.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="License.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="License.html">Licensing and distribution</a></li>
 </ul>
 
             
@@ -181,14 +181,15 @@ export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:/home/$NAME/nubomedia/msdata/builds
 </div>
 <div class="section" id="data-channel-demo">
 <h2>Data Channel Demo<a class="headerlink" href="#data-channel-demo" title="Permalink to this headline">¶</a></h2>
-<p>As an example about utilization of MsData with data channel
-<a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaasgraph.git">a graph demo</a> which sends user defined data for drawing a graph.</p>
+<p>As an example about utilization of MsData with data channel ie &#8216;Hello World App&#8217; familiarize with <a class="reference external" href="https://github.com/nubomedia-vtt/msdatademopaasgraph.git">a graph demo</a> which sends user defined data for drawing a graph.</p>
+<img alt="_images/msdatademo.png" src="_images/msdatademo.png" />
 <p>The media pipeline is done with the following structure:</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>KmsMsData kmsMsData = new KmsMsData.Builder(mediaPipeline).build();
 webRtcEndpoint.connect(kmsMsData);
 kmsMsData.connect(webRtcEndpoint);
 </pre></div>
 </div>
+<p>Currently the functionality is driven through interpretation of the given data. Explicit functionality can be added as necessary. The current implementation interprets the given data as a series of integers that are visualized as a graph. There are plans to develop some new applications which might eg instead of series of integers utilize JSON as data in the future.</p>
 </div>
 </div>
 

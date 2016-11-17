@@ -63,8 +63,9 @@ Both MsData and the filter that utilized MsData through data pads must naturally
 Data Channel Demo
 ===========================
 
-As an example about utilization of MsData with data channel
-`a graph demo <https://github.com/nubomedia-vtt/msdatademopaasgraph.git>`__ which sends user defined data for drawing a graph.
+As an example about utilization of MsData with data channel ie 'Hello World App' familiarize with `a graph demo <https://github.com/nubomedia-vtt/msdatademopaasgraph.git>`__ which sends user defined data for drawing a graph.
+
+.. image:: msdatademo.png
 
 The media pipeline is done with the following structure:
 
@@ -73,4 +74,6 @@ The media pipeline is done with the following structure:
 	    KmsMsData kmsMsData = new KmsMsData.Builder(mediaPipeline).build();
 	    webRtcEndpoint.connect(kmsMsData);
 	    kmsMsData.connect(webRtcEndpoint);	    
+
+Currently the functionality is driven through interpretation of the given data. Explicit functionality can be added as necessary. The current implementation interprets the given data as a series of integers that are visualized as a graph. There are plans to develop some new applications which might eg instead of series of integers utilize JSON as data in the future.
 
