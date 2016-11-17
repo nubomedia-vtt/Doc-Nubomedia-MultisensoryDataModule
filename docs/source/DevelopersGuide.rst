@@ -63,7 +63,7 @@ Both MsData and the filter that utilized MsData through data pads must naturally
 Data Channel Demo
 ===========================
 
-As an example about utilization of MsData with data channel ie 'Hello World App' familiarize with `a graph demo <https://github.com/nubomedia-vtt/msdatademopaasgraph.git>`__ which sends user defined data for drawing a graph.
+As an example about utilization of MsData with data channel, familiarize with `a graph demo <https://github.com/nubomedia-vtt/msdatademopaasgraph.git>`__ , ie 'Hello World App', which sends user defined data for drawing a graph.
 
 .. image:: msdatademo.png
 
